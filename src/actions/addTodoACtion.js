@@ -2,14 +2,10 @@ import * as action from "../APIs/todosAPI.js";
 import * as actionType from "../utilities/actionTypes.js"
 
 
-const addTodoToAPI = (id, content) => {
+const addTodoToAPI = data => {
 	return {
 		type: actionType.ADD_TODO,
-		payload: {
-            'id': id,
-            'content': content,
-            'checked': false			
-		}
+		payload: data
 	};
 };
 
@@ -17,7 +13,7 @@ const postTodoToAPI = (id, content) => {
 	return dispatch => {
 		action.postTodoToAPI(id,content)
 		.then(response => response.json())
-		.then(dispatch(addTodoToAPI(id, content)))
+		.then(data => dispatch(addTodoToAPI(data)))
 	};
 };
 

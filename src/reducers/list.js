@@ -10,6 +10,7 @@ const initialTodos = {
 }
 
 const list = (state = initialTodos, action) => {
+	const copiedTodos = state.todos.slice(0);
 	switch (action.type) {
 		case actionType.ADD_TODO:
 			return Object.assign(
@@ -26,8 +27,33 @@ const list = (state = initialTodos, action) => {
 				{}, 
 				state,
 				{	
-					todos: action.payload,
-     				counter: state.counter					
+					todos: action.payload					
+				}
+			);
+
+		case actionType.CHANGE_COMPLETED:
+			const changedTodo = action.payload;
+			const selectedindex = copiedTodos.findIndex(todo => {
+        		return todo.id === changedTodo.id;
+    		});
+			copiedTodos[selectedindex] = changedTodo;
+			return Object.assign(
+				{}, 
+				state,
+				{	
+					todos: copiedTodos	
+				}
+			);
+
+			case actionType.DELETE_TODO:
+				const selectedTodos = copiedTodos.filter(todo => {
+					return action.payload !== todo.id;
+				});
+			return Object.assign(
+				{}, 
+				state,
+				{	
+					todos: selectedTodos				
 				}
 			);
 

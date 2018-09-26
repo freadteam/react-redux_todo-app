@@ -8,22 +8,23 @@ class TodosList extends Component {
   	} 
 
 	render() {
-		const {todos} = this.props
+		const {todos, putTodoToAPI, deleteTodoFromAPI} = this.props;
 		const list = todos.map(todo => {
+			const {id, content, completed} = todo;
 			return ( 
-				<li key={todo.id}>
+				<li key={id}>
 					<input 
 			            type="checkbox" 
-			            checked={todo.completed}
+			            checked={completed}
 			            onChange= { () => {
-			            	//切り替え
+			            	putTodoToAPI(id, content, completed);
 			            }}
 			         />
-			        {todo.id}
-					{todo.content}
+			        {id}
+					{content}
 			        <button
 			        	onClick={ () => {
-			        		//消す
+			        		deleteTodoFromAPI(id);
 			            }}
 			         >
 			        	delete
