@@ -8,8 +8,16 @@ class TodosList extends Component {
   	} 
 
 	render() {
-		const {todos, putTodoToAPI, deleteTodoFromAPI} = this.props;
-		const list = todos.map(todo => {
+		const {todos, filter, putTodoToAPI, deleteTodoFromAPI} = this.props;
+
+		let filteredTodos = todos;
+		if (filter==="unCompletedTodos") {
+			filteredTodos = todos.filter(todo => todo.completed === false);
+		} else if (filter==="completedTodos") {
+			filteredTodos = todos.filter(todo => todo.completed === true);
+		};
+		
+		const list = filteredTodos.map(todo => {
 			const {id, content, completed} = todo;
 			return ( 
 				<li key={id}>

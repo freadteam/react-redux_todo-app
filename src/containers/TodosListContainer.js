@@ -8,7 +8,8 @@ import deleteTodoFromAPI from "../actions/deleteTodoFromAPI";
 // state のどの部分を、どういう名前で componentsにprops として渡すかを定義する
 const mapStateToProps = state => {
   return {
-    todos: state.list.todos
+    todos: state.list.todos,
+    filter: state.filter
   };
 };
 

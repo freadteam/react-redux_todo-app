@@ -4,6 +4,8 @@ import './App.css';
 
 import AddTodoForm from "./containers/AddTodoContainer";
 import TodosList from "./containers/TodosListContainer";
+import FilterComponent from "./containers/FooterContainer";
+
 
 class App extends Component {
   render() {
@@ -13,6 +15,7 @@ class App extends Component {
         <AddTodoForm />
         <h2>List</h2>
         <TodosList />
+        <FilterComponent />
       </div>
     );
   }

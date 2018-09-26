@@ -7,8 +7,8 @@
     },
     {
       "id": -1,
-      "content": "test",
-      "completed": false
+      "content": "fuga",
+      "completed": true
     }
   ]
 }
