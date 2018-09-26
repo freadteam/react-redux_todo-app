@@ -3,12 +3,12 @@
     {
       "id": -2,
       "content": "hoge",
-      "completed": false
+      "completed": true
     },
     {
       "id": -1,
-      "content": "fuga",
-      "completed": true
+      "content": "fugs",
+      "completed": false
     }
   ]
 }

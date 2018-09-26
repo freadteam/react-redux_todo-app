@@ -1,22 +1,18 @@
-import React from "react"
+import React from "react";
+import { Link } from 'react-router-dom';
 
-const FilterComponent = ({ filterTodos})=> {
+const FilterComponent = ({ filterTodos, filter})=> {
+	filterTodos(filter);
 	return (
 		<div>
-			<button onClick={ () => {
-			 	filterTodos("allTodos");
-			}}>
-				All Todo
+			<button>
+				<Link to='/'>All Todo</Link>
 			</button>
-			<button onClick={ () => {
-			 	filterTodos("unCompletedTodos");
-			}}>
-				Uncompleted Todo
+			<button>
+				<Link to='/uncompleted'>Uncompleted Todo</Link>
 			</button>
-			<button onClick={ () => {
-			 	filterTodos("completedTodos");
-			}}>
-				Completed Todo
+			<button>
+				<Link to='/completed'>Completed Todo</Link>
 			</button>
 		</div>
 		);

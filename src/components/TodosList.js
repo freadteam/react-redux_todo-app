@@ -28,7 +28,6 @@ class TodosList extends Component {
 			            	putTodoToAPI(id, content, completed);
 			            }}
 			         />
-			        {id}
 					{content}
 			        <button
 			        	onClick={ () => {
@@ -45,5 +44,3 @@ class TodosList extends Component {
 }
 
 export default TodosList;
-
-
