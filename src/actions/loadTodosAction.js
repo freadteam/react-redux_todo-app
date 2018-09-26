@@ -13,9 +13,7 @@ const loadTodosFromAPI = () => {
 	return dispatch => {
 		action.loadTodosFromAPI()
 		.then(response => response.json())
-		.then(data => 
-			dispatch(getTodos(data))
-		)
+		.then(data => dispatch(getTodos(data)))
 	};
 };
 

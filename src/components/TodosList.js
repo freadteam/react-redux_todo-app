@@ -8,22 +8,30 @@ class TodosList extends Component {
   	} 
 
 	render() {
-		const {todos} = this.props
-		const list = todos.map(todo => {
+		const {todos, filter, putTodoToAPI, deleteTodoFromAPI} = this.props;
+
+		let filteredTodos = todos;
+		if (filter==="unCompletedTodos") {
+			filteredTodos = todos.filter(todo => todo.completed === false);
+		} else if (filter==="completedTodos") {
+			filteredTodos = todos.filter(todo => todo.completed === true);
+		};
+		
+		const list = filteredTodos.map(todo => {
+			const {id, content, completed} = todo;
 			return ( 
-				<li key={todo.id}>
+				<li key={id}>
 					<input 
 			            type="checkbox" 
-			            checked={todo.completed}
+			            checked={completed}
 			            onChange= { () => {
-			            	//切り替え
+			            	putTodoToAPI(id, content, completed);
 			            }}
 			         />
-			        {todo.id}
-					{todo.content}
+					{content}
 			        <button
 			        	onClick={ () => {
-			        		//消す
+			        		deleteTodoFromAPI(id);
 			            }}
 			         >
 			        	delete
@@ -36,5 +44,3 @@ class TodosList extends Component {
 }
 
 export default TodosList;
-
-

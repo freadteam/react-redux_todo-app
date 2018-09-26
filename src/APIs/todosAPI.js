@@ -12,14 +12,14 @@ export const postTodoToAPI = (id, content) => {
         body: JSON.stringify({
             'id': id,
             'content': content,
-            'checked': false
+            'completed': false
         })
     })
     //.then(res => res.json());
 };
 
-  // apiにput（chenkboxが押された時にcheckedのtrue/falseを切り替える）
-export const putTodoToAPI = ({id: id, content: content, checked: checked}) => {
+  // apiにput（chenkboxが押された時にccompletedのtrue/falseを切り替える）
+export const putTodoToAPI = (id, content, completed) => {
     return fetch('http://localhost:3000/todos/' + id, {
         method: 'PUT',
         headers: {
@@ -28,14 +28,14 @@ export const putTodoToAPI = ({id: id, content: content, checked: checked}) => {
         body: JSON.stringify({
             'id': id,
             'content': content,
-            'checked': !checked
+            'completed': !completed
         })
     })
     //.then(res => res.json());
 };
 
 //apiからdelete
-export const  deleteTodoFromAPI = id => {
+export const deleteTodoFromAPI = id => {
     return fetch('http://localhost:3000/todos/' + id, {
         method: 'DELETE'
     })
