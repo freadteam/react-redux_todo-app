@@ -14,6 +14,7 @@ const loadTodosFromAPI = () => {
 		action.loadTodosFromAPI()
 		.then(response => response.json())
 		.then(data => dispatch(getTodos(data)))
+		.catch(error => console.log(error))
 	};
 };
 

@@ -1,10 +1,21 @@
 import React, { Component } from "react";
+//material UI
+import List from '@material-ui/core/List';
+import ListItem from '@material-ui/core/ListItem';
+//import ListItemSecondaryAction from '@material-ui/core/ListItemSecondaryAction';
+import ListItemText from '@material-ui/core/ListItemText';
+import Button from '@material-ui/core/Button';
+import DeleteIcon from '@material-ui/icons/Delete';
+import Checkbox from '@material-ui/core/Checkbox';
+import "./TodoList.css"
+
 
 class TodosList extends Component {
 
 	componentDidMount(){
     	const { loadTodosFromAPI } = this.props;
     	loadTodosFromAPI();
+    	console.log(this.props.classes)
   	} 
 
 	render() {
@@ -20,23 +31,29 @@ class TodosList extends Component {
 		const list = filteredTodos.map(todo => {
 			const {id, content, completed} = todo;
 			return ( 
-				<li key={id}>
-					<input 
-			            type="checkbox" 
-			            checked={completed}
-			            onChange= { () => {
-			            	putTodoToAPI(id, content, completed);
-			            }}
-			         />
-					{content}
-			        <button
-			        	onClick={ () => {
-			        		deleteTodoFromAPI(id);
-			            }}
-			         >
-			        	delete
-			        </button>
-				</li>
+				<div className="listDiv" key={id}>	
+					<List key={id}>
+							<ListItem>
+						         <Checkbox 
+						            checked={completed}
+						            color="primary"
+						            onChange= { () => {
+						            	putTodoToAPI(id, content, completed);
+						            }}
+						         />
+								<ListItemText primary={content} />
+						        <Button 
+						        	variant="text" 
+						        	color="primary"
+						        	onClick={ () => {
+						        		deleteTodoFromAPI(id);
+						            }}
+						         >
+						        	<DeleteIcon />
+						        </Button>
+							</ListItem>
+					</List>
+				</div>
 			);
 	});
 	return <ul>{list}</ul>		

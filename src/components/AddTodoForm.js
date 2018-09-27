@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+import Input from '@material-ui/core/Input';
+import "./AddTodoForm.css"
 
 
 class AddTodoForm extends Component {
@@ -21,16 +23,17 @@ class AddTodoForm extends Component {
 
 	render() {
 		return(
-			<div>
+			<div className="addTodoFrom">
 				<form onSubmit={this.handleSubmit}>
-					<input 
-					type="text"
-					placeholder="add todo"
-					autoFocus={true}
-					value={this.state.content}
-					required
-					onChange={this.handleChange}
-					/>
+        			<Input
+        				type="text"
+				        placeholder="write Todo!"
+				        onChange={this.handleChange}
+				        value={this.state.content}
+				        autoFocus
+				        required
+				        fullWidth
+				     />
 				</form>
 			</div>
 		);

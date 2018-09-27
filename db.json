@@ -1,13 +1,8 @@
 {
   "todos": [
     {
-      "id": -2,
-      "content": "hoge",
-      "completed": true
-    },
-    {
       "id": -1,
-      "content": "fugs",
+      "content": "fuga",
       "completed": false
     }
   ]

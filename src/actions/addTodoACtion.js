@@ -14,6 +14,8 @@ const postTodoToAPI = (id, content) => {
 		action.postTodoToAPI(id,content)
 		.then(response => response.json())
 		.then(data => dispatch(addTodoToAPI(data)))
+		.then(data => console.log(data))
+		.catch(error => console.log(error))
 	};
 };
 
