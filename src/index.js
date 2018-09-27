@@ -12,6 +12,7 @@ import './index.css';
 import App from './App';
 import registerServiceWorker from './registerServiceWorker';
 
+//import MuiThemeProvider from '@material-ui/core/styles/MuiThemeProvider'
 
 // middleWare 用の配列を作成する
 const middleWares = [thunk];
@@ -20,7 +21,9 @@ const store = createStore(rootReducer, applyMiddleware(...middleWares));
 
 ReactDOM.render(
 	<Provider store={store}>
-		<App />
+       {/* <MuiThemeProvider>*/}
+			<App />
+       {/* </MuiThemeProvider>*/}
 	</Provider>, 
 	document.getElementById('root'));
 registerServiceWorker();
