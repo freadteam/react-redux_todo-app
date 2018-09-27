@@ -27,7 +27,7 @@ class AddTodoForm extends Component {
 				<form onSubmit={this.handleSubmit}>
         			<Input
         				type="text"
-				        placeholder="write Todo!"
+				        placeholder="Write Todo!"
 				        onChange={this.handleChange}
 				        value={this.state.content}
 				        autoFocus

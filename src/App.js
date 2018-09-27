@@ -23,9 +23,6 @@ class App extends Component {
 
             <AddTodoForm />  
 
-            <h2>List</h2>
-            <TodosList />  
-
             <Route exact path='/' render={() => (
               <FilterComponent filter={"allTodos"}/>
             )}/>         
@@ -35,6 +32,8 @@ class App extends Component {
             <Route exact path='/completed' render={() => (
               <FilterComponent filter={"completedTodos"}/>
             )}/> 
+            
+            <TodosList />  
             
           </div>
       </BrowserRouter>
